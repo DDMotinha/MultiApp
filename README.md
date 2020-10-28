@@ -11,7 +11,13 @@
 	<p>	Esse projeto é em React Native 📱 e comunicado com uma API para integração dos serviços a ela atrelados e todos os arquivos pessoais dessa API serão bloqueados para visualização, juntamente com a utilização do Firebase 🔥
 	</p>
 </div>
-
-<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+<div style="display: inline-block; >
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+</div>
 
 
