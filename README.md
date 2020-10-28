@@ -18,5 +18,7 @@
 	<img src="https://github.com/DDMotinha/printmultinews/blob/main/loginscreen.png" alt="Lamp" width="230" height="400">
 	<img src="https://github.com/DDMotinha/printmultinews/blob/main/veolcityscreen.png" alt="Lamp" width="230" height="400">	
 </div>
-
+<div>
+	<p>	O projeto está em fase de desenvolvimento e README foi atualizada por último em 28/10/2020.
+</div>
 
