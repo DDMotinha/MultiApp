@@ -12,7 +12,6 @@
 	</p>
 </div>
 <div style="display: inline-block;">
-	
 	<img src="https://github.com/DDMotinha/printmultinews/blob/main/homescreen.png" alt="Lamp" width="230" height="400">
 	<img src="https://github.com/DDMotinha/printmultinews/blob/main/ContactScreen.png" alt="Lamp" width="230" height="400">
 	<img src="https://github.com/DDMotinha/printmultinews/blob/main/consume.png" alt="Lamp" width="230" height="400">
