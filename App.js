@@ -1,101 +1,21 @@
-
-import * as React from 'react';
-import { View, Text, Button, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import HomeScreen from './src/Screen/HomeScreen';
-import LoginScreen from './src/Screen/LoginScreen';
-import BilletScreen from './src/Screen/BilletScreen';
-import TestScreen from './src/Screen/TestScreen';
-import ConsumeScreen from './src/Screen/ConsumeScreen';
-import UnlockScreen from './src/Screen/UnlockScreen';
-import ContactScreen from './src/Screen/ContactScreen';
-
-const Stack = createStackNavigator();
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen" >
-        <Stack.Screen 
-          name="HomeScreen" 
-          component={HomeScreen} 
-          options={{ 
-            title: 'Home',
-            headerStyle: {
-              backgroundColor: "#42a5f5",                       
-            },
-            headerTintColor: '#fff',          
-        }}
-        />
-        <Stack.Screen 
-          name="LoginScreen" 
-          component={LoginScreen} 
-          options={{ 
-            title: 'Login',
-            headerStyle: {
-              backgroundColor: "#42a5f5",                       
-            },
-            headerTintColor: '#fff',          
-        }}
-        />
-        <Stack.Screen 
-          name="BilletScreen" 
-          component={BilletScreen} 
-          options={{ 
-            title: '2ª Via',
-            headerStyle: {
-              backgroundColor: "#42a5f5",                       
-            },
-            headerTintColor: '#fff',          
-        }}
-        />
-        <Stack.Screen 
-          name="TestScreen" 
-          component={TestScreen} 
-          options={{ 
-            title: 'Teste de velocidade',
-            headerStyle: {
-              backgroundColor: "#42a5f5",                       
-            },
-            headerTintColor: '#fff',          
-        }}
-        />
-        <Stack.Screen
-         name="ConsumeScreen"
-         component={ConsumeScreen} 
-         options={{ 
-          title: 'Consumo Mensal',
-          headerStyle: {
-            backgroundColor: "#42a5f5",                       
-          },
-          headerTintColor: '#fff',          
-      }}
-        />
-        <Stack.Screen
-         name="UnlockScreen" 
-         component={UnlockScreen} 
-         options={{ 
-          title: 'Auto-desbloqueio',
-          headerStyle: {
-            backgroundColor: "#42a5f5",                       
-          },
-          headerTintColor: '#fff',          
-      }}
-        />
-        <Stack.Screen 
-          name="ContactScreen" 
-          component={ContactScreen} 
-          options={{ 
-            title: 'Entrar em contato',
-            headerStyle: {
-              backgroundColor: "#42a5f5",                       
-            },
-            headerTintColor: '#fff',          
-        }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!aa</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
