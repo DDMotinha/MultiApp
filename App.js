@@ -4,7 +4,9 @@ import React, {
   useState,
   useEffect
 } from 'react';
+
 import { render } from 'react-dom';
+
 import { 
   Text, 
   TextInput, 
@@ -15,6 +17,7 @@ import {
   Animated,
   Keyboard,
 } from 'react-native';
+
 //imports funções css e imagens
 
 import appStyle from './src/style/m-app-style';
@@ -24,6 +27,8 @@ export default function App() {
   const [offset, setOffset] = useState(new Animated.ValueXY({x: 0, y: 105}));
   const [opacity, setOpacity] = useState(new Animated.Value(0));
   const [logo, setLogo] = useState(new Animated.ValueXY({ x: 150, y: 150}))
+
+  
 
   useEffect(() => {
 
@@ -115,7 +120,10 @@ export default function App() {
       >
           <TextInput
             style={
-              appStyle.input
+              [
+                appStyle.appLogo,
+                appStyle.input
+              ]
             }
             placeholder="CPF"
             autoCorrect={false}
@@ -123,7 +131,10 @@ export default function App() {
           />
           <TextInput
             style={
-              appStyle.input
+              [
+                appStyle.appLogo,
+                appStyle.input
+              ]
             }
             placeholder="SENHA"
             autoCorrect={false}
