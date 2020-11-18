@@ -10,10 +10,12 @@ const appStyle = StyleSheet.create({
     },
     containerLogo: {
         flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
     appLogo: {
-      width: 150,
-      height: 150,
+        borderColor: "black",
+        borderWidth: 1,
     },
     containerInput:{
         flex: 1,
@@ -28,6 +30,7 @@ const appStyle = StyleSheet.create({
         minHeight: 45,
         borderRadius: 10,
         textAlign: "center",
+        margin: 5,
     },
     containerPlano:{
         flex:1
@@ -40,6 +43,10 @@ const appStyle = StyleSheet.create({
         borderColor: '#35aaf0',
         justifyContent: "center",
         marginTop: 20,
+        marginBottom: 10,
+        textAlign: "center",
+        borderWidth: 1,
+        borderColor: "#3599f0",
     },
     btnText:{
         color: '#FFF',
