@@ -1,29 +1,25 @@
-import React, {useState, useEffect} from  'react';
+import config from 'config.js'
 
-function apiRest(){
-    const URL = "URL";
-    const TOKEN = "TOKEN";
+async function tokenApi(){
 
-    const [get, setGet] = useState(Value(URL));
-    
-    function consumeApi(){
+    try {
 
-        fetch(URL, {
-            method: "GET",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringfy(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Sucesso:', data);
-        })
-        .catch((error) => {
-            console.error('Erro:', error)
-        })
-    };
+        const url = config();
 
+        const username = "USUARIO";
+        const password = "SENHA";
+
+        const auther = ""+url+"WSAutenticacaoOperador.rule?sys=MK0&username="+username+"&password="+password+"";
+
+        const response = await fetch(auther);
+        const data = await response.json();
+        let token = data.TokenAutenticacao;
+        
+        return token;
+
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-export default apiRest;
+export default tokenApi;

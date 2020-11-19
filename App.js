@@ -20,7 +20,12 @@ import {
 
 //imports funções css e imagens
 
+import config from './src/controller/config'
+import tokenApi from './src/controller/Api'
+import config from './src/controller/config';
 import appStyle from './src/style/m-app-style';
+import tokenRetorno from './src/controller/tokenRetorno';
+
 
 export default function App() {
   
@@ -28,6 +33,8 @@ export default function App() {
   const [opacity, setOpacity] = useState(new Animated.Value(0));
   const [logo, setLogo] = useState(new Animated.ValueXY({ x: 150, y: 150}))
 
+  const [cpf, setCpf ] = useState('');
+  const [ senha, setSenha ] = useState('');
   
 
   useEffect(() => {
@@ -82,6 +89,22 @@ export default function App() {
   };
 
   
+  async function authSac(cpf, senha){
+
+    const url = config();
+    const tokenRetornoAutenticacao = tokenRetorno(4);
+
+    const response = await fetch(""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpf+"&pass_sac="+senha+"")
+    const data = await response.json()
+
+    if ( data.AcessoSAC = "Sim" ){
+      
+    } else {
+      alert('Usuario ou senha, está errado.');
+    }
+  };
+
+
   return (
     <KeyboardAvoidingView
       style={
@@ -127,7 +150,7 @@ export default function App() {
             }
             placeholder="CPF"
             autoCorrect={false}
-            onChangeText={() => {}}
+            onChangeText={(cpf) => {setCpf(cpf)}}
           />
           <TextInput
             style={
@@ -138,12 +161,13 @@ export default function App() {
             }
             placeholder="SENHA"
             autoCorrect={false}
-            onChangeText={() => {}}
+            onChangeText={(senha) => {setSenha(senha)}}
           />
           <TouchableOpacity
             style={
               appStyle.btnSubmit
             }
+            onPress={authSac}
           >
             <Text
               style={
