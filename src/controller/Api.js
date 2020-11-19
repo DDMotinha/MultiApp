@@ -7,6 +7,7 @@ function apiRest(){
     const [get, setGet] = useState(Value(URL));
     
     function consumeApi(){
+
         fetch(URL, {
             method: "GET",
             headers: {
@@ -22,6 +23,7 @@ function apiRest(){
             console.error('Erro:', error)
         })
     };
+
 }
 
 export default apiRest;
