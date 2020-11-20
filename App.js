@@ -16,26 +16,23 @@ import {
   TouchableOpacity,
   Animated,
   Keyboard,
+  Alert,
+  Linking
 } from 'react-native';
 
 //imports funções css e imagens
 
 import config from './src/controller/config'
-import tokenApi from './src/controller/Api'
-import config from './src/controller/config';
+import tokenApi from './src/controller/api'
 import appStyle from './src/style/m-app-style';
 import tokenRetorno from './src/controller/tokenRetorno';
-
+import AppMain from './src/App/index';
 
 export default function App() {
-  
+
   const [offset, setOffset] = useState(new Animated.ValueXY({x: 0, y: 105}));
   const [opacity, setOpacity] = useState(new Animated.Value(0));
   const [logo, setLogo] = useState(new Animated.ValueXY({ x: 150, y: 150}))
-
-  const [cpf, setCpf ] = useState('');
-  const [ senha, setSenha ] = useState('');
-  
 
   useEffect(() => {
 
@@ -88,19 +85,25 @@ export default function App() {
 
   };
 
+  const [cpf, setCpf ] = useState('');
+  const [ senha, setSenha ] = useState('');
   
-  async function authSac(cpf, senha){
+  async function authSac(){
 
-    const url = config();
-    const tokenRetornoAutenticacao = tokenRetorno(4);
+    const cpfUse = cpf;
+    const senhaUse = senha;
 
-    const response = await fetch(""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpf+"&pass_sac="+senha+"")
-    const data = await response.json()
+    const url = await config();
+    const tokenRetornoAutenticacao = await tokenRetorno(4);
 
-    if ( data.AcessoSAC = "Sim" ){
+    const fetchURL =  ""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpfUse+"&pass_sac="+senhaUse+""
+    const response = await fetch(fetchURL);
+    const data = await response.json();
+    
+    if ( data.AcessoSAC == "Sim" ){
       
     } else {
-      alert('Usuario ou senha, está errado.');
+      Alert.alert('Usuario ou senha, está errado.');
     }
   };
 
@@ -167,7 +170,7 @@ export default function App() {
             style={
               appStyle.btnSubmit
             }
-            onPress={authSac}
+            onPress={() => (authSac)}
           >
             <Text
               style={

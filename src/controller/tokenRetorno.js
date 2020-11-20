@@ -1,18 +1,19 @@
-import config from 'config.js'
-import tokenApi from 'Api.js'
+import config from './config'
+import tokenApi from './api'
 
-function tokenRetorno(cdServico){
+async function tokenRetorno(cdServico){
 
-    const token = tokenApi();
-    
-    const url = config();
+    const token = await tokenApi();
+    const url = await config();
 
     const contrasenhaPerfil = "3790d1aa7c63710";
 
-    const response = await fetch(""+url+"WSAutenticacao.rule?sys=MK0&token="+token+"&password="+contrasenhaPerfil+"&cd_servico="+cdServico+"");
+    const tokenURL = ""+url+"WSAutenticacao.rule?sys=MK0&token="+token+"&password="+contrasenhaPerfil+"&cd_servico="+cdServico+"";
+    
+    const response = await fetch(tokenURL);
     const data = await response.json();
     const tokenRetornoAU = data.Token;
-
+    
     return tokenRetornoAU;
     
   };

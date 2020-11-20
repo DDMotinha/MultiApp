@@ -1,25 +1,21 @@
-import config from 'config.js'
+import config from './config'
 
 async function tokenApi(){
 
-    try {
+        const url = await config();
 
-        const url = config();
-
-        const username = "USUARIO";
-        const password = "SENHA";
+        const username = "testeapp";
+        const password = "Multiplicteste2020";
 
         const auther = ""+url+"WSAutenticacaoOperador.rule?sys=MK0&username="+username+"&password="+password+"";
-
-        const response = await fetch(auther);
-        const data = await response.json();
-        let token = data.TokenAutenticacao;
         
-        return token;
+        const response = await fetch(auther);
+        
+        const data = await response.json();
+        const token = data.TokenAutenticacao;
 
-    } catch (error) {
-        console.log(error);
-    }
+
+        return token;
 }
 
 export default tokenApi;
