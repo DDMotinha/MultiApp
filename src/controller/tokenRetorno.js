@@ -1,9 +1,9 @@
 import config from './config'
-import tokenApi from './api'
+import api from './api';
 
 async function tokenRetorno(cdServico){
 
-    const token = await tokenApi();
+    const token = await api();
     const url = await config();
 
     const contrasenhaPerfil = "3790d1aa7c63710";

@@ -1,191 +1,99 @@
-//imports funções principais
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/Screen/HomeScreen';
+import BilletScreen from './src/Screen/BilletScreen';
+import TestScreen from './src/Screen/TestScreen';
+import ConsumeScreen from './src/Screen/ConsumeScreen';
+import UnlockScreen from './src/Screen/UnlockScreen';
+import ContactScreen from './src/Screen/ContactScreen';
+import loginScreen from './src/Screen/loginScreen';
 
-import React, {
-  useState,
-  useEffect
-} from 'react';
-
-import { render } from 'react-dom';
-
-import { 
-  Text, 
-  TextInput, 
-  View, 
-  KeyboardAvoidingView, 
-  Image, 
-  TouchableOpacity,
-  Animated,
-  Keyboard,
-  Alert,
-  Linking
-} from 'react-native';
-
-//imports funções css e imagens
-
-import config from './src/controller/config'
-import tokenApi from './src/controller/api'
-import appStyle from './src/style/m-app-style';
-import tokenRetorno from './src/controller/tokenRetorno';
-import AppMain from './src/App/index';
+const Stack = createStackNavigator();
 
 export default function App() {
-
-  const [offset, setOffset] = useState(new Animated.ValueXY({x: 0, y: 105}));
-  const [opacity, setOpacity] = useState(new Animated.Value(0));
-  const [logo, setLogo] = useState(new Animated.ValueXY({ x: 150, y: 150}))
-
-  useEffect(() => {
-
-    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
-    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide);
-
-
-    Animated.parallel([
-
-      Animated.spring(offset.y, {
-        toValue: 0,
-        speed: 4,
-        bounciness: 15,
-      }),
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 500,
-      })
-    ]).start()
-  }, []);
-
-
-
-  function keyboardDidShow(){
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 75,
-        duration: 100,
-      }),
-      Animated.timing(logo.y, {
-        toValue: 75,
-        duration: 100,
-      })
-    ]).start();
-  };
-
-
-
-  function keyboardDidHide(){
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 150,
-        duration: 100,
-      }),
-      Animated.timing(logo.y, {
-        toValue: 150,
-        duration: 100,
-      })
-    ]).start();
-
-  };
-
-  const [cpf, setCpf ] = useState('');
-  const [ senha, setSenha ] = useState('');
-  
-  async function authSac(){
-
-    const cpfUse = cpf;
-    const senhaUse = senha;
-
-    const url = await config();
-    const tokenRetornoAutenticacao = await tokenRetorno(4);
-
-    const fetchURL =  ""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpfUse+"&pass_sac="+senhaUse+""
-    const response = await fetch(fetchURL);
-    const data = await response.json();
-    
-    if ( data.AcessoSAC == "Sim" ){
-      
-    } else {
-      Alert.alert('Usuario ou senha, está errado.');
-    }
-  };
-
-
   return (
-    <KeyboardAvoidingView
-      style={
-        appStyle.container
-      }
-    >
-      <View
-        style={
-          appStyle.containerLogo
-        }
-      >
-        <Animated.Image
-          source={
-            require('./src/image/m-logo.png')
-          }
-          style={{
-            width: logo.x,
-            height: logo.y,
-          }}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="loginScreen" >
+      <Stack.Screen 
+          name="loginScreen" 
+          component={
+            loginScreen
+          } 
+          options={{ 
+            title: '',
+            headerTintColor: '',          
+        }}
         />
-      </View>
-      <Animated.View
-        style={
-          [
-            appStyle.containerInput,
-            {
-              opacity: opacity,
-              transform: [
-                {
-                    translateY: offset.y,
-                },
-            ]
-            }
-          ]
-        }
-      >
-          <TextInput
-            style={
-              [
-                appStyle.appLogo,
-                appStyle.input
-              ]
-            }
-            placeholder="CPF"
-            autoCorrect={false}
-            onChangeText={(cpf) => {setCpf(cpf)}}
-          />
-          <TextInput
-            style={
-              [
-                appStyle.appLogo,
-                appStyle.input
-              ]
-            }
-            placeholder="SENHA"
-            autoCorrect={false}
-            onChangeText={(senha) => {setSenha(senha)}}
-          />
-          <TouchableOpacity
-            style={
-              appStyle.btnSubmit
-            }
-            onPress={() => (authSac)}
-          >
-            <Text
-              style={
-                appStyle.btnText
-              }
-            >
-              Entrar
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text>
-              Ainda não possui um plano?
-            </Text>
-          </TouchableOpacity>
-      </Animated.View>
-    </KeyboardAvoidingView>
+        <Stack.Screen 
+          name="HomeScreen" 
+          component={
+            HomeScreen
+          } 
+          options={{ 
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: "#42a5f5",                       
+            },
+            headerTintColor: '#fff',          
+        }}
+        />
+        <Stack.Screen 
+          name="BilletScreen" 
+          component={BilletScreen} 
+          options={{ 
+            title: '2ª Via',
+            headerStyle: {
+              backgroundColor: "#42a5f5",                       
+            },
+            headerTintColor: '#fff',          
+        }}
+        />
+        <Stack.Screen 
+          name="TestScreen" 
+          component={TestScreen} 
+          options={{ 
+            title: 'Teste de velocidade',
+            headerStyle: {
+              backgroundColor: "#42a5f5",                       
+            },
+            headerTintColor: '#fff',          
+        }}
+        />
+        <Stack.Screen
+         name="ConsumeScreen"
+         component={ConsumeScreen} 
+         options={{ 
+          title: 'Consumo Mensal',
+          headerStyle: {
+            backgroundColor: "#42a5f5",                       
+          },
+          headerTintColor: '#fff',          
+      }}
+        />
+        <Stack.Screen
+         name="UnlockScreen" 
+         component={UnlockScreen} 
+         options={{ 
+          title: 'Auto-desbloqueio',
+          headerStyle: {
+            backgroundColor: "#42a5f5",                       
+          },
+          headerTintColor: '#fff',          
+      }}
+        />
+        <Stack.Screen 
+          name="ContactScreen" 
+          component={ContactScreen} 
+          options={{ 
+            title: 'Entrar em contato',
+            headerStyle: {
+              backgroundColor: "#42a5f5",                       
+            },
+            headerTintColor: '#fff',          
+        }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+}

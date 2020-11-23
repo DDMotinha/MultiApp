@@ -1,6 +1,6 @@
 import config from './config'
 
-async function tokenApi(){
+async function api(){
 
         const url = await config();
 
@@ -13,9 +13,8 @@ async function tokenApi(){
         
         const data = await response.json();
         const token = data.TokenAutenticacao;
-
-
+        
         return token;
 }
 
-export default tokenApi;
+export default api;

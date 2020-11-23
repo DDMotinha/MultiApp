@@ -11,7 +11,6 @@ import TestScreen from './TestScreen';
 import ConsumeScreen from './ConsumeScreen';
 import UnlockScreen from './UnlockScreen';
 import ContactScreen from './ContactScreen';
-
 import homeScreen from '../style/homeScreen';
 
 // Navigation Buttons
