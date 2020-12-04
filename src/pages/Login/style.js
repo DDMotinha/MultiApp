@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import style from '../Boleto/style';
 
-const appStyle = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
@@ -55,4 +56,4 @@ const appStyle = StyleSheet.create({
 
   });
 
-export default appStyle;
+export default style;

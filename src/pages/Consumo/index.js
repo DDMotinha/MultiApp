@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function UnlockScreen(){
+import style from './style';
+
+export default function Consumo(){
     return(
         <View>
             <Text>
-                Teste de desbloqueio
+                Teste de consumo
             </Text>
         </View>
     )

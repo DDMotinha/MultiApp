@@ -1,24 +1,18 @@
 import * as React from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './src/Screen/HomeScreen';
-import BilletScreen from './src/Screen/BilletScreen';
-import TestScreen from './src/Screen/TestScreen';
-import ConsumeScreen from './src/Screen/ConsumeScreen';
-import UnlockScreen from './src/Screen/UnlockScreen';
-import ContactScreen from './src/Screen/ContactScreen';
-import loginScreen from './src/Screen/loginScreen';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="loginScreen" >
+      <Stack.Navigator initialRouteName="Login" >
       <Stack.Screen 
-          name="loginScreen" 
+          name="Login" 
           component={
-            loginScreen
+            Login
           } 
           options={{ 
             title: '',
@@ -26,9 +20,9 @@ export default function App() {
         }}
         />
         <Stack.Screen 
-          name="HomeScreen" 
+          name="Inicial" 
           component={
-            HomeScreen
+            Inicial
           } 
           options={{ 
             title: 'Home',
@@ -39,8 +33,8 @@ export default function App() {
         }}
         />
         <Stack.Screen 
-          name="BilletScreen" 
-          component={BilletScreen} 
+          name="Boleto" 
+          component={Boleto} 
           options={{ 
             title: '2ª Via',
             headerStyle: {
@@ -50,8 +44,8 @@ export default function App() {
         }}
         />
         <Stack.Screen 
-          name="TestScreen" 
-          component={TestScreen} 
+          name="Teste" 
+          component={Teste} 
           options={{ 
             title: 'Teste de velocidade',
             headerStyle: {
@@ -61,8 +55,8 @@ export default function App() {
         }}
         />
         <Stack.Screen
-         name="ConsumeScreen"
-         component={ConsumeScreen} 
+         name="Consumo"
+         component={Consumo} 
          options={{ 
           title: 'Consumo Mensal',
           headerStyle: {
@@ -72,8 +66,8 @@ export default function App() {
       }}
         />
         <Stack.Screen
-         name="UnlockScreen" 
-         component={UnlockScreen} 
+         name="Liberacao" 
+         component={Liberacao} 
          options={{ 
           title: 'Auto-desbloqueio',
           headerStyle: {
@@ -83,8 +77,8 @@ export default function App() {
       }}
         />
         <Stack.Screen 
-          name="ContactScreen" 
-          component={ContactScreen} 
+          name="Contato" 
+          component={Contato} 
           options={{ 
             title: 'Entrar em contato',
             headerStyle: {

@@ -23,7 +23,7 @@
   //imports funções css e imagens
   
   import config from '../controller/config';
-  import appStyle from '../style/m-app-style';
+  import style from './style';
   import tokenRetorno from '../controller/tokenRetorno';
   import HomeScreen from './HomeScreen';
   
@@ -111,12 +111,12 @@
     return (
       <KeyboardAvoidingView
         style={
-          appStyle.container
+          style.container
         }
       >
         <View
           style={
-            appStyle.containerLogo
+            style.containerLogo
           }
         >
           <Animated.Image
@@ -132,7 +132,7 @@
         <Animated.View
           style={
             [
-              appStyle.containerInput,
+              style.containerInput,
               {
                 opacity: opacity,
                 transform: [
@@ -147,8 +147,8 @@
             <TextInput
               style={
                 [
-                  appStyle.appLogo,
-                  appStyle.input
+                  style.appLogo,
+                  style.input
                 ]
               }
               placeholder="CPF"
@@ -158,8 +158,8 @@
             <TextInput
               style={
                 [
-                  appStyle.appLogo,
-                  appStyle.input
+                  style.appLogo,
+                  style.input
                 ]
               }
               placeholder="SENHA"
@@ -168,13 +168,13 @@
             />
             <TouchableOpacity
               style={
-                appStyle.btnSubmit
+                style.btnSubmit
               }
               onPress={() => (authSac)}
             >
               <Text
                 style={
-                  appStyle.btnText
+                  style.btnText
                 }
               >
                 Entrar

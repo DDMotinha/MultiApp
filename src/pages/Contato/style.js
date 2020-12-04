@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const contactScreen = StyleSheet.create({
+const style = StyleSheet.create({
     estilo: {
         flex: 1,
         alignSelf: "center",
@@ -25,4 +25,4 @@ const contactScreen = StyleSheet.create({
     },
  });
 
- export default contactScreen;
+ export default style;

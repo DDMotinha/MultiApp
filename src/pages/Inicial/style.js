@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const homeScreen = StyleSheet.create({
+const style = StyleSheet.create({
     img:{
       alignSelf: "center",
       width: '100%',
@@ -47,4 +47,4 @@ const homeScreen = StyleSheet.create({
     
   });
 
-  export default homeScreen;
+  export default style;

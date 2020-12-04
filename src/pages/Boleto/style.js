@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const billetScreen =  StyleSheet.create({
+const style =  StyleSheet.create({
     boletoImage: {
         width: 150,
         height: 150,
@@ -16,4 +16,4 @@ const billetScreen =  StyleSheet.create({
 
 })
 
-export default billetScreen;
+export default style;
