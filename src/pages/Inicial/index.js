@@ -6,11 +6,11 @@ import { Colors, IconButton } from 'react-native-paper';
 
 // Import das telas
 
-import BilletScreen from './BilletScreen';
-import TestScreen from './TestScreen';
-import ConsumeScreen from './ConsumeScreen';
-import UnlockScreen from './UnlockScreen';
-import ContactScreen from './ContactScreen';
+import Boleto from '../Boleto';
+import Consumo from '../Consumo';
+import Teste from '../Teste';
+import Liberacao from '../Liberacao';
+import Contato from '../Contato';
 
 // import de estilo
 
@@ -22,14 +22,14 @@ export default function Inicial({ navigation }) {
     return (
     <View style={style.container}>
       <Image
-        source={ require('../image/logo.png')}
+        source={ require('../../images/logo.png')}
         style={style.img}
       />
       <View style={style.viewExt}>
         <View style={style.viewInt}>
-          <TouchableOpacity onPress={ () => navigation.navigate(BilletScreen)} >
+          <TouchableOpacity onPress={ () => navigation.navigate(Boleto)} >
             <View style={style.button}>
-              <IconButton icon={ require('../image/Billet.png')} size={35} color={Colors.blue900}/>
+              <IconButton icon={ require('../../images/Billet.png')} size={35} color={Colors.blue900}/>
               <Text style={style.buttonText}>2ª VIA</Text>
             </View>
           </TouchableOpacity>
@@ -37,17 +37,17 @@ export default function Inicial({ navigation }) {
       </View>
       <View style={style.viewExt}>
         <View style={style.viewInt}>
-          <TouchableOpacity onPress={ () => navigation.navigate(ContactScreen)} >
+          <TouchableOpacity onPress={ () => navigation.navigate(Contato)} >
             <View style={style.button}>
-              <IconButton icon={ require('../image/Contact.png')} size={35} color={Colors.blue900}/>
+              <IconButton icon={ require('../../images/Contact.png')} size={35} color={Colors.blue900}/>
               <Text style={style.buttonText}>ENTRAR EM CONTATO</Text>
             </View>
           </TouchableOpacity>
         </View>
           <View style={style.viewInt}>
-            <TouchableOpacity onPress={ () => navigation.navigate(TestScreen)} >
+            <TouchableOpacity onPress={ () => navigation.navigate(Teste)} >
               <View style={style.button}>
-                <IconButton icon={ require('../image/Speed.png')} size={35} color={Colors.blue900}/>
+                <IconButton icon={ require('../../images/Speed.png')} size={35} color={Colors.blue900}/>
                 <Text style={style.buttonText}>TESTE DE VELOCIDADE</Text>
               </View>
             </TouchableOpacity>
@@ -55,17 +55,17 @@ export default function Inicial({ navigation }) {
         </View>
         <View style={style.viewExt}>
           <View style={style.viewInt}>
-            <TouchableOpacity onPress={ () => navigation.navigate(UnlockScreen)}  >
+            <TouchableOpacity onPress={ () => navigation.navigate(Liberacao)}  >
               <View style={style.button}>
-                <IconButton icon={ require('../image/Lock.png')} size={35} color={Colors.blue900}/>
+                <IconButton icon={ require('../../images/Lock.png')} size={35} color={Colors.blue900}/>
                 <Text style={style.buttonText}>AUTO-DESBLOQUEIO</Text>
               </View>
             </TouchableOpacity>
           </View>
           <View style={style.viewInt}>
-            <TouchableOpacity onPress={ () => navigation.navigate(ConsumeScreen)} >
+            <TouchableOpacity onPress={ () => navigation.navigate(Consumo)} >
               <View style={style.button}>
-               <IconButton icon={ require('../image/Consume.png')} size={35} color={Colors.blue900}/>
+               <IconButton icon={ require('../../images/Consume.png')} size={35} color={Colors.blue900}/>
                 <Text style={style.buttonText}>CONSUMO</Text>
               </View>
             </TouchableOpacity>

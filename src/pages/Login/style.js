@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import style from '../Boleto/style';
 
 const style = StyleSheet.create({
     container: {

@@ -5,7 +5,7 @@ import { IconButton, Colors } from 'react-native-paper';
 import style from './style';
 
 
-export default function ContactScreen(){
+export default function Contato(){
     const mensage =  "Olá, gostaria de ser atendido?"
     return(
     <View style={style.estilo}>

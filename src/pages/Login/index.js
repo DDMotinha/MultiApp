@@ -5,29 +5,25 @@
     useEffect
   } from 'react';
   
-  import { NavigationContainer } from '@react-navigation/native';
-  
   import { 
     Text, 
     TextInput, 
     View, 
-    KeyboardAvoidingView, 
-    Image, 
+    KeyboardAvoidingView,
     TouchableOpacity,
     Animated,
     Keyboard,
-    Alert,
-    Linking
+    Alert
   } from 'react-native';
   
   //imports funções css e imagens
   
-  import config from '../controller/config';
+  import config from '../../services/config';
   import style from './style';
-  import tokenRetorno from '../controller/tokenRetorno';
-  import HomeScreen from './HomeScreen';
+  import tokenRetorno from '../../services/tokenRetorno';
+  import Inicial from '../Inicial';
   
-  export default function loginScreen({navigation}) {
+  export default function Login({navigation}) {
   
     const [offset, setOffset] = useState(new Animated.ValueXY({x: 0, y: 105}));
     const [opacity, setOpacity] = useState(new Animated.Value(0));
@@ -87,13 +83,14 @@
     const [cpf, setCpf ] = useState('');
     const [ senha, setSenha ] = useState('');
     
-    async function authSac(){
+    async function Autentificacao(){
   
       const cpfUse = cpf;
       const senhaUse = senha;
   
       const url = config();
       const tokenRetornoAutenticacao = await tokenRetorno(4);
+      console.log(tokenRetornoAutenticacao);
   
       const fetchURL =  ""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpfUse+"&pass_sac="+senhaUse+""
       const response = await fetch(fetchURL);
@@ -101,14 +98,14 @@
       
 
       if ( data.AcessoSAC == "Sim" ){
-        navigation.navigate(HomeScreen)
+        navigation.navigate(Inicial);
       } else {
-        Alert.alert('Usuario ou senha, está errado.');
+        Alert.alert('Usuário ou senha incorreto.');
       }
     };
   
   
-    return (
+    return (  
       <KeyboardAvoidingView
         style={
           style.container
@@ -121,7 +118,7 @@
         >
           <Animated.Image
             source={
-              require('../image/m-logo.png')
+              require('../../images/m-logo.png')
             }
             style={{
               width: logo.x,
@@ -170,7 +167,7 @@
               style={
                 style.btnSubmit
               }
-              onPress={() => (authSac)}
+              onPress={Autentificacao}
             >
               <Text
                 style={

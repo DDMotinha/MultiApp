@@ -4,7 +4,7 @@ import api from './api';
 async function tokenRetorno(cdServico){
 
     const token = await api();
-    const url = await config();
+    const url = config();
 
     const contrasenhaPerfil = "3790d1aa7c63710";
 
