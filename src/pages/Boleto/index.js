@@ -6,11 +6,23 @@ import { Colors, IconButton } from 'react-native-paper';
 import style from './style';
 
 export default function Boleto(){
+
+   const dadosBoleto = (
+        <View>
+            <Text>
+                Texto
+            </Text>
+        </View>
+   )
     
     return (
         <View style={style.container}>
             <IconButton icon={ require('../../images/Billet.png')} size={120} color={Colors.blue900}/>
-            <FlatList/>
+            <FlatList
+
+                renderItem={dadosBoleto}
+
+            />
         </View>
     )
 };
