@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" >
+      <Stack.Navigator initialRouteName="Boleto" >
       <Stack.Screen 
           name="Login" 
           component={

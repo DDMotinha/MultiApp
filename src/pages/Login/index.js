@@ -18,10 +18,10 @@
   
   //imports funções css e imagens
   
-  import config from '../../services/config';
+  import Autentificacao from '../../services/autentificacao';
   import style from './style';
-  import tokenRetorno from '../../services/tokenRetorno';
   import Inicial from '../Inicial';
+
   
   export default function Login({navigation}) {
   
@@ -83,21 +83,10 @@
     const [cpf, setCpf ] = useState('');
     const [ senha, setSenha ] = useState('');
     
-    async function Autentificacao(){
-  
-      const cpfUse = cpf;
-      const senhaUse = senha;
-  
-      const url = config();
-      const tokenRetornoAutenticacao = await tokenRetorno(4);
-      console.log(tokenRetornoAutenticacao);
-  
-      const fetchURL =  ""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpfUse+"&pass_sac="+senhaUse+""
-      const response = await fetch(fetchURL);
-      const data = await response.json();
-      
+    async function loginauth(){
+      const auth = await Autentificacao(cpf, senha);
 
-      if ( data.AcessoSAC == "Sim" ){
+      if ( auth.AcessoSAC == "Sim" ){
         navigation.navigate(Inicial);
       } else {
         Alert.alert('Usuário ou senha incorreto.');
@@ -167,7 +156,7 @@
               style={
                 style.btnSubmit
               }
-              onPress={Autentificacao}
+              onPress={loginauth}
             >
               <Text
                 style={
