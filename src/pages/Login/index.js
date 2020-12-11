@@ -21,6 +21,7 @@
   import Autentificacao from '../../services/autentificacao';
   import style from './style';
   import Inicial from '../Inicial';
+  import localStorage from '../../services/storage';
 
   
   export default function Login({navigation}) {
@@ -84,7 +85,11 @@
     const [ senha, setSenha ] = useState('');
     
     async function loginauth(){
-      const auth = await Autentificacao(cpf, senha);
+      
+      const retornoStorage = await localStorage(cpf, senha);
+
+      const auth = await Autentificacao();
+      
 
       if ( auth.AcessoSAC == "Sim" ){
         navigation.navigate(Inicial);

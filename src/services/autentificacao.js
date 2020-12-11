@@ -1,14 +1,16 @@
 import config from './config';
-import tokenRetorno from './tokenRetorno'
+import tokenRetorno from './tokenRetorno';
+import localStorage from './storage';
 
-async function Autentificacao(cpf, senha){
-  
-    const cpfUse = cpf;
-    const senhaUse = senha;
+async function Autentificacao(){
+
+    const retornoStorage = await localStorage();
+
+    const cpfUse = retornoStorage.cpf;
+    const senhaUse = retornoStorage.senha;
 
     const url = config();
     const tokenRetornoAutenticacao = await tokenRetorno(4);
-    console.log(tokenRetornoAutenticacao);
 
     const fetchURL =  ""+url+"WSMKUserSenhaSAC.rule?sys=MK0&token="+tokenRetornoAutenticacao+"&user_sac="+cpfUse+"&pass_sac="+senhaUse+""
     const response = await fetch(fetchURL);

@@ -1,7 +1,9 @@
-
+import Autentificacao from './autentificacao';
 
 async function segundavia(){
-    const arrayBol = a;
+    
+    const arrayBol = Autentificacao();
+
 }
 
 export default segundavia;
