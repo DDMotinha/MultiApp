@@ -7,22 +7,45 @@ async function localStorage(cpf , senha){
             cpf: `${cpf}`,
             senha: `${senha}`,
         };
-        
-        try {
+
+        if (await AsyncStorage.getItem('@app_user') !== null){
+
+            try {
             
-            await AsyncStorage.setItem('@app_user', JSON.stringify(userApp))
-        
-            const currentUser = await AsyncStorage.getItem('@app_user')
-        
-            console.log(currentUser)
+                const currentUser = await AsyncStorage.getItem('@app_user')
             
-            return currentUser
+                console.log(currentUser)
+                
+                return currentUser
+    
+            } catch (error) {
+    
+                console.log("errou");
+    
+            };
 
-        } catch (error) {
 
-            console.log("errou");
 
-        };
+        } else {
+
+            try {
+            
+                await AsyncStorage.setItem('@app_user', JSON.stringify(userApp))
+            
+                const currentUser = await AsyncStorage.getItem('@app_user')
+            
+                console.log(currentUser)
+                
+                return currentUser
+    
+            } catch (error) {
+    
+                console.log("errou");
+    
+            };
+
+        }
+        
         
 }
 
