@@ -30,7 +30,7 @@ async function localStorage(cpf , senha){
 
             try {
             
-                await AsyncStorage.setItem('@app_user', JSON.stringify(userApp))
+                await AsyncStorage.setItem('@app_user', JSON(userApp))
             
                 const currentUser = await AsyncStorage.getItem('@app_user')
             
